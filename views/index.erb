@@ -1,0 +1,28 @@
+<!doctype html>
+
+
+
+<html>
+<head>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="bootstrap.js"></script>
+	<title>Holidays!</title>
+</head>
+<body>
+	<h3>Current month's holidays, US</h3>
+	<% @current_holidays.each do |holiday| %>
+		<ul>
+			<!-- <li><%= holiday %></li>   -->
+			<li><%= holiday[0]["name"] %>, <%= holiday[0]["date"] %>, <%= holiday[0]["country"] %></li>
+		</ul>
+	<% end %>
+	<h3>Holidays from the month I was born (August 1994, US)</h3>
+	<% @old_holidays.each do |holiday| %>
+		<ul>
+			<!-- <li><%= holiday %></li>  -->
+			<li><%= holiday[0]["name"] %>, <%= holiday[0]["date"] %>, <%= holiday[0]["country"] %></li>
+		</ul>
+	<% end %>
+</body>
+</html>
