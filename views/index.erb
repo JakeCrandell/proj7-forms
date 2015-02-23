@@ -10,19 +10,27 @@
 	<title>Holidays!</title>
 </head>
 <body>
-	<h3>Current month's holidays, US</h3>
-	<% @current_holidays.each do |holiday| %>
-		<ul>
-			<!-- <li><%= holiday %></li>   -->
-			<li><%= holiday[0]["name"] %>, <%= holiday[0]["date"] %>, <%= holiday[0]["country"] %></li>
-		</ul>
+
+	<form>
+		<p>Month (1-12)</p>
+		<input name="month" type="number">
+		<p>Day (1-31)</p>
+		<input name="day" type="number">
+		<p>Year (xxxx)</p>
+		<input name="year" type="number">
+		<button type="submit">Submit!</button>
+	</form>
+
+	<% if @current_holidays.any? %>
+  	<h3>US Holidays</h3>
+		<% @current_holidays.each do |holiday| %>
+			<ul>
+				<li><%= holiday['name'] %>, <%=holiday['date'] %></li>
+			</ul>
+		<% end %>
+	<% else %>
+  	<h3>No results match your entered date</h3>
 	<% end %>
-	<h3>Holidays from the month I was born (August 1994, US)</h3>
-	<% @old_holidays.each do |holiday| %>
-		<ul>
-			<!-- <li><%= holiday %></li>  -->
-			<li><%= holiday[0]["name"] %>, <%= holiday[0]["date"] %>, <%= holiday[0]["country"] %></li>
-		</ul>
-	<% end %>
+	
 </body>
 </html>
