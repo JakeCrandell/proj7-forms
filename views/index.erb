@@ -13,11 +13,11 @@
 
 	<form>
 		<p>Month (1-12)</p>
-		<input name="month" type="number" required>
+		<input name="month" type="number" min="1" max="12" value="<%= params[:month] %>" required>
 		<p>Day (1-31)</p>
-		<input name="day" type="number" required>
+		<input name="day" type="number" max="31" value="<%= params[:day] %>" required>
 		<p>Year (xxxx)</p>
-		<input name="year" type="number" required>
+		<input name="year" type="number" value="<%= params[:year] %>" required>
 		<button type="submit">Submit!</button>
 	</form>
 
